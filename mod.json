@@ -4,5 +4,6 @@
     "version": "0.0.1",
     "description": "Q群838697221",
     "iconPath": "icon.png",
-    "targetGameBuild": 115
+    "targetGameBuild": 115,
+    "GUID":"WITCHCRAFT_KNIGHT"
 }
