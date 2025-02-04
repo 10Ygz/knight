@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ai;
 using UnityEngine;
+using VideoCopilot.code.utils;
 
 namespace InterestingTrait.code
 {

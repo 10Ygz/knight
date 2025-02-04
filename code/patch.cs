@@ -1,26 +1,46 @@
-﻿using HarmonyLib;
+﻿using System;
 using System.Collections.Generic;
+using HarmonyLib;
+using NeoModLoader.api.attributes;
+using NeoModLoader.General;
 using UnityEngine;
-using System;
+using UnityEngine.UI;
+using VideoCopilot.code.utils;
 
 
 namespace InterestingTrait.code
 {
     internal class patch
     {
+        public static bool displayAreaInitialization = false;
+        [Hotfixable]
         [HarmonyPostfix, HarmonyPatch(typeof(WindowCreatureInfo), "OnEnable")]
         public static void OnEnable_KnightPostfix(WindowCreatureInfo __instance)
         {
-            if (Config.selectedUnit == null)
+            if (!displayAreaInitialization)
             {
-                return;
-            }
+                displayAreaInitialization = true;
+                var obj = new GameObject("KnightShow", typeof(Text), typeof(ContentSizeFitter));
+                obj.transform.SetParent(__instance.transform.Find("Background"));
+                obj.transform.localScale = Vector3.one;
+                RectTransform rect = obj.GetComponent<RectTransform>();
 
-            __instance.showStat("Knight", __instance.actor.stats["Knight"]);
+                rect.pivot = new Vector2(0f, 1f);
+                rect.anchorMin = new Vector2(0.5f, 1f);
+                rect.anchorMax = new Vector2(0.5f, 1f);
+                rect.localPosition = new Vector3(-50, 155, 0);
+                rect.sizeDelta = new Vector2(800, 200);
+                
+            }
+            Transform ActorShowYuanNneg = __instance.transform.Find("Background/KnightShow");
+            Text ActorShowYuanNnegText = ActorShowYuanNneg.GetComponent<Text>();
+            ActorShowYuanNnegText.text = LM.Get("Knight")+":\t"+__instance.actor.GetKnight();
+            ActorShowYuanNnegText.font = LocalizedTextManager.currentFont;
+            ActorShowYuanNnegText.alignment = TextAnchor.UpperLeft;
+            ActorShowYuanNnegText.raycastTarget = false;
         }
 
         static float currentKnight = 0;
-
 
         [HarmonyPrefix, HarmonyPatch(typeof(ActorBase), "updateStats")]
         public static bool updateStats(ActorBase __instance)
@@ -29,8 +49,6 @@ namespace InterestingTrait.code
             {
                 return false;
             }
-
-            currentKnight = __instance.stats["Knight"];
 
             __instance.statsDirty = false;
             __instance.batch.c_stats_dirty.Remove(__instance.a);
