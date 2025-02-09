@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CODE\\InterestingTrait\\InterestingTrait.csproj": {}
+    "D:\\pc\\Steam\\steamapps\\common\\worldbox\\Mods\\骑士\\InterestingTrait.csproj": {}
   },
   "projects": {
-    "D:\\CODE\\InterestingTrait\\InterestingTrait.csproj": {
+    "D:\\pc\\Steam\\steamapps\\common\\worldbox\\Mods\\骑士\\InterestingTrait.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CODE\\InterestingTrait\\InterestingTrait.csproj",
+        "projectUniqueName": "D:\\pc\\Steam\\steamapps\\common\\worldbox\\Mods\\骑士\\InterestingTrait.csproj",
         "projectName": "InterestingTrait",
-        "projectPath": "D:\\CODE\\InterestingTrait\\InterestingTrait.csproj",
+        "projectPath": "D:\\pc\\Steam\\steamapps\\common\\worldbox\\Mods\\骑士\\InterestingTrait.csproj",
         "packagesPath": "C:\\Users\\yzxxy\\.nuget\\packages\\",
-        "outputPath": "D:\\CODE\\InterestingTrait\\obj\\",
+        "outputPath": "D:\\pc\\Steam\\steamapps\\common\\worldbox\\Mods\\骑士\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\yzxxy\\AppData\\Roaming\\NuGet\\NuGet.Config",
