@@ -22,7 +22,7 @@ namespace InterestingTrait.code
                 return false;
             }
             Actor a = pTarget.a;
-            if (a.stats["Knight"] <= 4.99)
+            if (a.GetKnight() <= 4.99)
             {
                 return false;
             }
@@ -54,12 +54,12 @@ namespace InterestingTrait.code
                 return false;
             }
             Actor a = pTarget.a;
-            if (a.stats["Knight"] <= 14.99)
+            if (a.GetKnight() <= 14.99)
             {
                 return false;
             }
 
-            a.stats["Knight"] -= 2;
+            a.ChangeKnight(-2);
             double successRate = 0.9;
             if (a.hasTrait("talent1"))
             {
@@ -95,12 +95,12 @@ namespace InterestingTrait.code
                 return false;
             }
             Actor a = pTarget.a;
-            if (a.stats["Knight"] <= 31.99)
+            if (a.GetKnight() <= 31.99)
             {
                 return false;
             }
 
-            a.stats["Knight"] -= 2;
+            a.ChangeKnight(-2);
             double successRate = 0.9;
             if (a.hasTrait("talent1"))
             {
@@ -136,12 +136,12 @@ namespace InterestingTrait.code
                 return false;
             }
             Actor a = pTarget.a;
-            if (a.stats["Knight"] <= 49.99)
+            if (a.GetKnight() <= 49.99)
             {
                 return false;
             }
 
-            a.stats["Knight"] -= 3;
+            a.ChangeKnight(-3);
             double successRate = 0.9;
             if (a.hasTrait("talent1"))
             {
@@ -177,12 +177,12 @@ namespace InterestingTrait.code
                 return false;
             }
             Actor a = pTarget.a;
-            if (a.stats["Knight"] <= 129.99)
+            if (a.GetKnight() <= 129.99)
             {
                 return false;
             }
 
-            a.stats["Knight"] -= 4;
+            a.ChangeKnight(-4);
             double successRate = 0.9;
             if (a.hasTrait("talent1"))
             {
@@ -218,11 +218,11 @@ namespace InterestingTrait.code
                 return false;
             }
             Actor a = pTarget.a;
-            if (a.stats["Knight"] <= 299.99)
+            if (a.GetKnight() <= 299.99)
             {
                 return false;
             }
-            a.stats["Knight"] -= 5;
+            a.ChangeKnight(-5);
             double successRate = 0.9;
             if (a.hasTrait("talent1"))
             {
