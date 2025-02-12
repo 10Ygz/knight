@@ -8,7 +8,7 @@ using ReflectionUtility;
 using ai;
 using System.Numerics;
 
-namespace InterestingTrait.code
+namespace Chivalry.code
 {
     internal class traits
     {
@@ -25,6 +25,14 @@ namespace InterestingTrait.code
             talent5.needs_to_be_explored = false;
             talent5.group_id = "SeedsofLife";
             AssetManager.traits.add(talent5);
+
+            ActorTrait talent6 = new ActorTrait();
+            talent6.id = "talent6";
+            talent6.path_icon = "trait/talent6";
+            talent6.needs_to_be_explored = false;
+            talent6.group_id = "SeedsofLife";
+            talent6.action_death = traitAction.talent6_death;
+            AssetManager.traits.add(talent6);
 
             ActorTrait Knight1 = new ActorTrait();
             Knight1.id = "Knight1";//侍从

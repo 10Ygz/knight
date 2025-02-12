@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InterestingTrait.code
+namespace Chivalry.code
 {
     internal class traitGroup
     {

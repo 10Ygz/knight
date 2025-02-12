@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\pc\\Steam\\steamapps\\common\\worldbox\\Mods\\骑士\\InterestingTrait.csproj",
-      "projectName": "InterestingTrait",
-      "projectPath": "D:\\pc\\Steam\\steamapps\\common\\worldbox\\Mods\\骑士\\InterestingTrait.csproj",
+      "projectUniqueName": "D:\\pc\\Steam\\steamapps\\common\\worldbox\\Mods\\骑士\\Chivalry.csproj",
+      "projectName": "Chivalry",
+      "projectPath": "D:\\pc\\Steam\\steamapps\\common\\worldbox\\Mods\\骑士\\Chivalry.csproj",
       "packagesPath": "C:\\Users\\yzxxy\\.nuget\\packages\\",
       "outputPath": "D:\\pc\\Steam\\steamapps\\common\\worldbox\\Mods\\骑士\\obj\\",
       "projectStyle": "PackageReference",

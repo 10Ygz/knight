@@ -1,5 +1,5 @@
 ﻿
-namespace InterestingTrait.code
+namespace Chivalry.code
 {
     internal class stats
     {

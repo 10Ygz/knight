@@ -7,10 +7,11 @@ using ai;
 using UnityEngine;
 using VideoCopilot.code.utils;
 
-namespace InterestingTrait.code
+namespace Chivalry.code
 {
     internal class traitAction
     {
+        private static Dictionary<string, int> _reviveCounts = new Dictionary<string, int>(); //跟踪每个名字复活次数
         public static bool Knight1_effectAction(BaseSimObject pTarget, WorldTile pTile = null)//升.侍从
         {
             if (pTarget == null)
@@ -241,10 +242,98 @@ namespace InterestingTrait.code
             {
                 return false; // 随机数大于成功率，则操作失败
             }
+            a.data.setName(pTarget.a.getName()+" 传奇");
+            a.data.favorite = true;
 
             upTrait("特质", "Knight6", a, new string[] { "tumorInfection", "cursed", "infected", "mushSpores", "Knight5" },
-                new string[] { "特质" });
+                new string[] { "talent6" });
 
+            return true;
+        }
+        public static bool talent6_death(BaseSimObject pTarget, WorldTile pTile = null)
+        {
+            if (pTarget == null)
+            {
+                return false;
+            }
+
+            string entityName = pTarget.a.getName();
+            //检查是否存在该名字的复活计数，如果不存在则初始化为1
+            if (!_reviveCounts.TryGetValue(entityName, out int reviveCount))
+            {
+                _reviveCounts[entityName] = 1;
+            }
+
+            if (_reviveCounts[entityName] >= 3) //复活次数是否已达到限制
+            {
+                return false;
+            }
+
+            if (!pTarget.isActor())
+            {
+                return false;
+            }
+
+            Actor a = pTarget.a;
+            a.removeTrait("tumorInfection");
+            a.removeTrait("cursed");
+            a.removeTrait("infected");
+            a.removeTrait("mushSpores");
+            a.removeTrait("plague");
+            var act = World.world.units.createNewUnit(a.asset.id, pTile, 0f);
+            ActorTool.copyUnitToOtherUnit(a, act);
+            act.data.setName(pTarget.a.getName());
+            act.data.traits = new List<string>() { "flair5","talent6" };
+            act.data.health = 999;
+            act.data.created_time = World.world.getCreationTime();
+            act.data.age_overgrowth = 18;
+            act.data.setName(entityName);
+            teleportRandom(act);
+
+            if (reviveCount < 3) //如果复活次数未达到限制，则添加flair5
+            {
+                act.data.traits = new List<string>() { "flair5","talent6" };
+            }
+
+            _reviveCounts[entityName] = reviveCount + 1; //增加该名字的复活次数计数器
+
+            PowerLibrary pb = new PowerLibrary();
+            pb.divineLightFX(pTarget.a.currentTile, null);
+
+            return true;
+        }
+        public static bool teleportRandom(Actor a)
+        {
+            MapBox mapBox = World.world as MapBox;
+            if (mapBox == null)
+            {
+                return false;
+            }
+
+            CitiesManager citiesManager = mapBox.list_base_managers.OfType<CitiesManager>().FirstOrDefault();
+            if (citiesManager == null)
+            {
+                return false;
+            }
+
+            List<City> cities = citiesManager.list;
+            if (cities.Count == 0)
+            {
+                return false;
+            }
+
+            System.Random random = new System.Random();
+            int randomIndex = random.Next(cities.Count);
+            City randomCity = cities[randomIndex];
+
+            WorldTile cityCenterTile = randomCity.getTile();
+            if (cityCenterTile == null || cityCenterTile.Type.block || !cityCenterTile.Type.ground)
+            {
+                return false;
+            }
+
+            a.cancelAllBeh(null);
+            a.spawnOn(cityCenterTile, 0f);
             return true;
         }
         //骑士的真伤效果

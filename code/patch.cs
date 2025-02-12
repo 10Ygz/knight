@@ -8,7 +8,7 @@ using UnityEngine.UI;
 using VideoCopilot.code.utils;
 
 
-namespace InterestingTrait.code
+namespace Chivalry.code
 {
     internal class patch
     {

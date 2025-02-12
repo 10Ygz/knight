@@ -1,14 +1,14 @@
 ﻿using HarmonyLib;
 
-using InterestingTrait.code;
+using Chivalry.code;
 
 using NeoModLoader.api;
 
-namespace InterestingTrait
+namespace Chivalry
 {
-    internal class InterestingTraitClass : BasicMod<InterestingTraitClass>
+    internal class ChivalryClass : BasicMod<ChivalryClass>
     {
-        public static string id = "shiyue.worldbox.mod.interestingtrait";
+        public static string id = "shiyue.worldbox.mod.Chivalry";
         protected override void OnModLoad()
         {
             stats.Init();
