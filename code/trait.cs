@@ -31,6 +31,7 @@ namespace Chivalry.code
             talent6.path_icon = "trait/talent6";
             talent6.needs_to_be_explored = false;
             talent6.group_id = "SeedsofLife";
+            talent6.base_stats[S.max_age] = 10f;
             talent6.action_death = traitAction.talent6_death;
             AssetManager.traits.add(talent6);
 
