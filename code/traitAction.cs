@@ -244,12 +244,39 @@ namespace Chivalry.code
             }
             a.data.setName(pTarget.a.getName()+" 传奇");
             a.data.favorite = true;
+            // 初始化newName为当前名称
+            string currentName = a.getName();
+            string newName = currentName;
+            // 随机选择一条提示信息
+            System.Random random = new System.Random();
+            int index = random.Next(grade91Tips.Count);
+            string tip = grade91Tips[index];
+
+            // 如果提示信息中包含占位符（比如 {0}），则替换为角色的名称
+            if (tip.Contains("{0}"))
+            {
+                tip = string.Format(tip, newName);
+            }
+
+            // 显示随机选择的提示信息
+            ActionLibrary.showWhisperTip(tip);
 
             upTrait("特质", "Knight6", a, new string[] { "tumorInfection", "cursed", "infected", "mushSpores", "Knight5" },
                 new string[] { "talent6" });
 
             return true;
         }
+        // 定义一组升级提示信息
+        private static readonly List<string> grade91Tips = new List<string>
+        {
+            "「血染苍穹！[{0}]踏破万军，永耀之冠加冕战场！」",
+            "「战鼓轰鸣！[{0}]以剑锋开辟永耀之路！」",
+            "「铁蹄震天！[{0}]携圣焰横扫千军，登顶骑士之巅！」",
+            "「圣焰熊熊！[{0}]以正义之名，照亮永耀之路，骑士之魂永存！」",
+            "「战火洗礼！[{0}]历经千战，传奇之名永耀世间！」",
+            "「剑指苍穹！[{0}]战无不胜，铸就永耀骑士的辉煌！」",
+            "「战旗飘扬！[{0}]以血与火铸就永耀传奇！」"
+        };
         public static bool talent6_death(BaseSimObject pTarget, WorldTile pTile = null)
         {
             if (pTarget == null)

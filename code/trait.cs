@@ -24,6 +24,7 @@ namespace Chivalry.code
             talent5.path_icon = "trait/talent5";
             talent5.needs_to_be_explored = false;
             talent5.group_id = "SeedsofLife";
+            talent5.inherit = 100f;
             AssetManager.traits.add(talent5);
 
             ActorTrait talent6 = new ActorTrait();

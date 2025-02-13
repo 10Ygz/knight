@@ -65,15 +65,6 @@ namespace Chivalry.code
                 actor.ChangeKnight (10);
             }
 
-            // 检查是否有"talent6" Trait
-            if (actor.hasTrait("talent6"))
-            {
-                ActorData a = actor.data;
-                string pTargetName = actor.a.getName();
-                a.setName(pTargetName + " 传说");
-                a.favorite = true;
-            }
-
             UpdateKnightBasedOnGrade(__instance, "Knight1", 15f);
             UpdateKnightBasedOnGrade(__instance, "Knight2", 32f);
             UpdateKnightBasedOnGrade(__instance, "Knight3", 50f);
