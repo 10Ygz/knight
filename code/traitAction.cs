@@ -340,7 +340,7 @@ namespace Chivalry.code
             var act = World.world.units.createNewUnit(a.asset.id, pTile, 0f);
             ActorTool.copyUnitToOtherUnit(a, act);
             act.data.setName(pTarget.a.getName());
-            act.data.traits = new List<string>() { "flair5","talent6" };
+            act.data.traits = new List<string>() { "flair5","talent7" };
             act.data.health = 999;
             act.data.created_time = World.world.getCreationTime();
             act.data.age_overgrowth = 18;
@@ -349,7 +349,7 @@ namespace Chivalry.code
 
             if (reviveCount < 3) //如果复活次数未达到限制，则添加flair5
             {
-                act.data.traits = new List<string>() { "flair5","talent6" };
+                act.data.traits = new List<string>() { "flair5","talent7" };
             }
 
             _reviveCounts[entityName] = reviveCount + 1; //增加该名字的复活次数计数器
