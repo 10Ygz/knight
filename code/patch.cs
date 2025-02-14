@@ -42,36 +42,70 @@ namespace Chivalry.code
         [HarmonyPostfix, HarmonyPatch(typeof(Actor), "updateAge")]
         public static void updateWorldTime_KnightPostfix(Actor __instance)
         {
-            Actor actor = __instance;
-            if (actor == null)
+            if (__instance == null)
             {
                 return;
             }
 
-            if (actor.hasTrait("talent1"))
+            float age = (float)__instance.getAge();
+            bool hasTalent6 = __instance.hasTrait("talent6");// 检查是否具有talent6特质
+
+            // 特质增加生命之力的处理
+            var talentKnightChanges = new Dictionary<string, float>
             {
-                actor.ChangeKnight(1);
-            }
-            if (actor.hasTrait("talent2"))
+                { "talent1", 1f },
+                { "talent2", 1.5f },
+                { "talent3", 2f },
+                { "talent4", 10f },
+                { "talent6", -5f }
+            };
+
+            foreach (var change in talentKnightChanges)
             {
-                actor.ChangeKnight(1.5f);
-            }
-            if (actor.hasTrait("talent3"))
-            {
-                actor.ChangeKnight(2);
-            }
-            if (actor.hasTrait("talent4"))
-            {
-                actor.ChangeKnight (10);
+                // 如果具有talent6特质，并且当前特质是talent1到talent4，则跳过
+                if (hasTalent6 && (change.Key == "talent1" || change.Key == "talent2" || change.Key == "talent3" || change.Key == "talent4"))
+                {
+                    continue;
+                }
+
+                if (__instance.hasTrait(change.Key))
+                {
+                    __instance.ChangeKnight(change.Value);
+                }
             }
 
-            UpdateKnightBasedOnGrade(__instance, "Knight1", 15f);
-            UpdateKnightBasedOnGrade(__instance, "Knight2", 32f);
-            UpdateKnightBasedOnGrade(__instance, "Knight3", 50f);
-            UpdateKnightBasedOnGrade(__instance, "Knight4", 130f);
-            UpdateKnightBasedOnGrade(__instance, "Knight5", 300f);
-            UpdateKnightBasedOnGrade(__instance, "Knight6", 320f);
-            UpdateKnightBasedOnGrade(__instance, "talent5", 0f);
+            // 年龄和概率条件增加特质的处理
+            var knightTraitThresholds = new Dictionary<string, float>
+            {
+                { "Knight1", 68f },//侍从
+                { "Knight2", 68f },//晨星骑士
+                { "Knight3", 78f },//曦光骑士
+                { "Knight4", 118f },//烈阳骑士
+                { "Knight5", 188f }//穹辉骑士
+            };
+            const float talent6Chance = 0.2f;
+            foreach (var threshold in knightTraitThresholds)
+            {
+                if (__instance.hasTrait(threshold.Key) && age > threshold.Value && Toolbox.randomChance(talent6Chance))
+                {
+                    __instance.addTrait("talent6", false);
+                }
+            }
+
+            var grades = new Dictionary<string, float>
+            {
+                { "Knight1", 15f },
+                { "Knight2", 32f },
+                { "Knight3", 50f },
+                { "Knight4", 130f },
+                { "Knight5", 300f },
+                { "Knight6", 320f },
+                { "talent5", 0f }
+            };
+            foreach (var grade in grades)
+            {
+                UpdateKnightBasedOnGrade(__instance, grade.Key, grade.Value);
+            }
         }
         private static void UpdateKnightBasedOnGrade(Actor actor, string traitName, float maxKnight)
         {

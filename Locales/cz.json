@@ -12,6 +12,11 @@
   "trait_Knight5_info": "剑指苍穹，勇武之巅         (勇武的巅峰，帝国的侍从)         生命之力需求:130",
   "trait_Knight6": "永耀骑士",
   "trait_Knight6_info": "传说之光，史诗尽头         (帝国之辉光，史册之绝响)         生命之力需求:300",
+  "trait_Knight2+": "晨星骑士寿命",
+  "trait_Knight3+": "曦光骑士寿命",
+  "trait_Knight4+": "烈阳骑士寿命",
+  "trait_Knight5+": "穹辉骑士寿命",
+  "trait_Knight6+": "永耀骑士寿命",
   "trait_group_SeedsofLife": "骑士天赋",
   "trait_talent1": "下•生命种子",
   "trait_talent1_info": "生命之力/年+1",
@@ -23,7 +28,9 @@
   "trait_talent4_info": "生命之力/年+10(十万分之一概率诞生)",
   "trait_talent5": "生命禁脉",
   "trait_talent5_info": "禁止生命之力成长,100%遗传",
-  "trait_talent6": "骑士馈赠",
-  "trait_talent6_info": "转生为S巫师,三次机会",
+  "trait_talent6": "安享晚年",
+  "trait_talent6_info": "每年-5生命之力,同时天赋不再增加",
+  "trait_talent7": "骑士馈赠",
+  "trait_talent7_info": "转生为S巫师,三次机会",
   "Knight": "生命之力"
 }

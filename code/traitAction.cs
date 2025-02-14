@@ -23,6 +23,7 @@ namespace Chivalry.code
                 return false;
             }
             Actor a = pTarget.a;
+            
             if (a.GetKnight() <= 4.99)
             {
                 return false;
@@ -81,7 +82,7 @@ namespace Chivalry.code
             }
 
             upTrait("特质", "Knight2", a, new string[] { "tumorInfection", "cursed", "infected", "mushSpores", "Knight1" },
-                new string[] { "特质" });
+                new string[] { "Knight2+" });
 
             return true;
         }
@@ -96,6 +97,14 @@ namespace Chivalry.code
                 return false;
             }
             Actor a = pTarget.a;
+            // 检查骑士值是否小于x，如果是，则趺落境界
+            if (a.GetKnight() < 13)
+            {
+                // 添加Knight1特质
+                upTrait("特质", "Knight1", a, new string[] { "Knight2" }, new string[] { });
+                return true; // 趺落境界处理完毕，返回true
+            }
+            
             if (a.GetKnight() <= 31.99)
             {
                 return false;
@@ -121,8 +130,8 @@ namespace Chivalry.code
                 return false; // 随机数大于成功率，则操作失败
             }
 
-            upTrait("特质", "Knight3", a, new string[] { "tumorInfection", "cursed", "infected", "mushSpores", "Knight2" },
-                new string[] { "特质" });
+            upTrait("特质", "Knight3", a, new string[] { "tumorInfection", "cursed", "infected", "mushSpores", "Knight2", "Knight2+" },
+                new string[] { "Knight3+" });
 
             return true;
         }
@@ -137,6 +146,13 @@ namespace Chivalry.code
                 return false;
             }
             Actor a = pTarget.a;
+            // 检查骑士值是否小于x，如果是，则趺落境界
+            if (a.GetKnight() < 30)
+            {
+                upTrait("特质", "Knight2", a, new string[] { "Knight3" }, new string[] { });
+                return true; // 趺落境界处理完毕，返回true
+            }
+
             if (a.GetKnight() <= 49.99)
             {
                 return false;
@@ -162,8 +178,8 @@ namespace Chivalry.code
                 return false; // 随机数大于成功率，则操作失败
             }
 
-            upTrait("特质", "Knight4", a, new string[] { "tumorInfection", "cursed", "infected", "mushSpores", "Knight3" },
-                new string[] { "特质" });
+            upTrait("特质", "Knight4", a, new string[] { "tumorInfection", "cursed", "infected", "mushSpores", "Knight3", "Knight3+" },
+                new string[] { "Knight4+" });
 
             return true;
         }
@@ -178,6 +194,13 @@ namespace Chivalry.code
                 return false;
             }
             Actor a = pTarget.a;
+            // 检查骑士值是否小于x，如果是，则趺落境界
+            if (a.GetKnight() < 47)
+            {
+                upTrait("特质", "Knight3", a, new string[] { "Knight4" }, new string[] { });
+                return true; // 趺落境界处理完毕，返回true
+            }
+
             if (a.GetKnight() <= 129.99)
             {
                 return false;
@@ -203,8 +226,8 @@ namespace Chivalry.code
                 return false;
             }
 
-            upTrait("特质", "Knight5", a, new string[] { "tumorInfection", "cursed", "infected", "mushSpores", "Knight4" },
-                new string[] { "特质" });
+            upTrait("特质", "Knight5", a, new string[] { "tumorInfection", "cursed", "infected", "mushSpores", "Knight4", "Knight4+" },
+                new string[] { "Knight5+" });
 
             return true;
         }
@@ -219,6 +242,13 @@ namespace Chivalry.code
                 return false;
             }
             Actor a = pTarget.a;
+            // 检查骑士值是否小于x，如果是，则趺落境界
+            if (a.GetKnight() < 126)
+            {
+                upTrait("特质", "Knight4", a, new string[] { "Knight5" }, new string[] { });
+                return true; // 趺落境界处理完毕，返回true
+            }
+
             if (a.GetKnight() <= 299.99)
             {
                 return false;
@@ -261,8 +291,8 @@ namespace Chivalry.code
             // 显示随机选择的提示信息
             ActionLibrary.showWhisperTip(tip);
 
-            upTrait("特质", "Knight6", a, new string[] { "tumorInfection", "cursed", "infected", "mushSpores", "Knight5" },
-                new string[] { "talent6" });
+            upTrait("特质", "Knight6", a, new string[] { "tumorInfection", "cursed", "infected", "mushSpores", "Knight5", "Knight5+" },
+                new string[] { "talent7", "Knight6+" });
 
             return true;
         }
@@ -277,7 +307,7 @@ namespace Chivalry.code
             "「剑指苍穹！[{0}]战无不胜，铸就永耀骑士的辉煌！」",
             "「战旗飘扬！[{0}]以血与火铸就永耀传奇！」"
         };
-        public static bool talent6_death(BaseSimObject pTarget, WorldTile pTile = null)
+        public static bool talent7_death(BaseSimObject pTarget, WorldTile pTile = null)
         {
             if (pTarget == null)
             {
