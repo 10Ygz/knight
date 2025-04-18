@@ -1,14 +1,14 @@
 ﻿using HarmonyLib;
 
-using Chivalry.code;
+using ChivalryWizardingWorld.code;
 
 using NeoModLoader.api;
 
-namespace Chivalry
+namespace ChivalryWizardingWorld
 {
-    internal class ChivalryClass : BasicMod<ChivalryClass>
+    internal class ChivalryWizardingWorldClass : BasicMod<ChivalryWizardingWorldClass>
     {
-        public static string id = "shiyue.worldbox.mod.Chivalry";
+        public static string id = "shiyue.worldbox.mod.ChivalryWizardingWorld";
         protected override void OnModLoad()
         {
             stats.Init();
