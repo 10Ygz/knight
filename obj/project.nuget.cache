@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9wq+YDuqh0k=",
+  "dgSpecHash": "ic77HwSq7nc=",
   "success": true,
-  "projectFilePath": "D:\\pc\\Steam\\steamapps\\common\\worldbox\\mods\\0.50+骑士0.0.1\\ChivalryWizardingWorld.csproj",
+  "projectFilePath": "D:\\CODE\\knight\\ChivalryWizardingWorld.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yzxxy\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
     "C:\\Users\\yzxxy\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",

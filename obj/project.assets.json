@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\pc\\Steam\\steamapps\\common\\worldbox\\mods\\0.50+骑士0.0.1\\ChivalryWizardingWorld.csproj",
+      "projectUniqueName": "D:\\CODE\\knight\\ChivalryWizardingWorld.csproj",
       "projectName": "ChivalryWizardingWorld",
-      "projectPath": "D:\\pc\\Steam\\steamapps\\common\\worldbox\\mods\\0.50+骑士0.0.1\\ChivalryWizardingWorld.csproj",
+      "projectPath": "D:\\CODE\\knight\\ChivalryWizardingWorld.csproj",
       "packagesPath": "C:\\Users\\yzxxy\\.nuget\\packages\\",
-      "outputPath": "D:\\pc\\Steam\\steamapps\\common\\worldbox\\mods\\0.50+骑士0.0.1\\obj\\",
+      "outputPath": "D:\\CODE\\knight\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\yzxxy\\AppData\\Roaming\\NuGet\\NuGet.Config"
