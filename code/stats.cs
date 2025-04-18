@@ -1,5 +1,4 @@
-﻿
-namespace Chivalry.code
+﻿namespace ChivalryWizardingWorld.code
 {
     internal class stats
     {
@@ -10,7 +9,7 @@ namespace Chivalry.code
             Knight.normalize = true;
             Knight.normalize_min = -999999;
             Knight.normalize_max = 999999;
-            Knight.mod = true;
+            Knight.multiplier = true;
             Knight.used_only_for_civs = false;
             AssetManager.base_stats_library.add(Knight);
         }
